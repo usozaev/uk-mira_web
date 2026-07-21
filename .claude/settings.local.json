@@ -2,7 +2,48 @@
   "permissions": {
     "allow": [
       "Bash(npm -v)",
-      "Bash(npx --yes create-next-app@latest . --typescript --eslint --tailwind --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)"
+      "Bash(npx --yes create-next-app@latest . --typescript --eslint --tailwind --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "WebSearch",
+      "Bash(curl -s \"https://api.github.com/repos/lexleo/russia-regions-map/git/trees/master?recursive=1\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/lexleo/russia-regions-map/master/docs/russian-map.js\" -o /tmp/russian-map.js)",
+      "Read(//tmp/**)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/lexleo/russia-regions-map/master/docs/with-regions.json\" -o /tmp/with-regions.json)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/lexleo/russia-regions-map/master/README.md\")",
+      "Bash(python3 -c ' *)",
+      "Bash(cd /tmp)",
+      "Bash(node -e ' *)",
+      "Bash(cygpath -w /tmp/with-regions.json)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(sleep 5 && cat /tmp/nextdev.log)",
+      "Bash(curl -s -o /tmp/page.html -w \"%{http_code}\\\\n\" http://localhost:3000/)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(chromium-cli --help)",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx --yes playwright install chromium)",
+      "Bash(mkdir -p shots)",
+      "Bash(node shot.js)",
+      "Bash(npm ls *)",
+      "Bash(npm install *)",
+      "Bash(node \"C:\\\\Users\\\\afsatQ\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-afsatQ-Desktop-work-website-uk-mira\\\\bdfaee4b-0a07-4828-8eb0-d771902de26d\\\\scratchpad\\\\shot.js\")",
+      "Bash(cp \"C:\\\\Users\\\\afsatQ\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-afsatQ-Desktop-work-website-uk-mira\\\\bdfaee4b-0a07-4828-8eb0-d771902de26d\\\\scratchpad\\\\shot.js\" ./shot.js)",
+      "Bash(rm -rf shot.js shots node_modules/playwright node_modules/playwright-core node_modules/.bin/playwright*)",
+      "Bash(npx eslint *)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill //PID 24236 //F)",
+      "Bash(mkdir -p \"c:/Users/afsatQ/Desktop/work/website_uk_mira/src/app/projects/[slug]\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(taskkill //PID 24788 //F)",
+      "Bash(sleep 4 && cat /tmp/nextdev2.log)",
+      "Bash(mkdir -p shots2)",
+      "Bash(node shot2.js)",
+      "Bash(sed -i 's/hazard-strip absolute inset-x-0 top-0 h-1.5/hazard-strip absolute inset-x-0 top-0 h-2.5/' src/components/Footer.tsx)",
+      "Bash(sed -i 's/hazard-strip absolute inset-x-0 top-0 z-10 h-1.5/hazard-strip absolute inset-x-0 top-0 z-10 h-2.5/' src/components/Hero.tsx)",
+      "Bash(taskkill //PID 18704 //F)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\afsatQ\\Desktop\\work\\website_uk_mira\\src\\app\\projects"
     ]
   }
 }
