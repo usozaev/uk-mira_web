@@ -1,19 +1,19 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { artByKey, type ArtKey } from "./BlueprintArt";
+import Image from "next/image";
 
-type Slide = { art: ArtKey; caption: string };
+type Photo = { src: string; caption: string };
 
-export default function ProjectSlider({
-  slides,
+export default function PhotoSlider({
+  photos,
   code,
 }: {
-  slides: readonly Slide[];
+  photos: readonly Photo[];
   code: string;
 }) {
   const [index, setIndex] = useState(0);
-  const count = slides.length;
+  const count = photos.length;
   const dragState = useRef<{ startX: number } | null>(null);
 
   const goTo = useCallback(
@@ -42,8 +42,6 @@ export default function ProjectSlider({
     dragState.current = null;
   };
 
-  const Active = artByKey[slides[index].art];
-
   return (
     <div>
       <div
@@ -51,21 +49,28 @@ export default function ProjectSlider({
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
       >
-        <div className="blueprint-grid absolute inset-0 opacity-40" />
-        <div key={index} className="absolute inset-0 flex items-center justify-center p-10 [animation:fade-up_0.5s_cubic-bezier(0.16,1,0.3,1)_both]">
-          <Active className="h-full w-full max-w-2xl" />
+        <div key={index} className="absolute inset-0 [animation:fade-up_0.5s_cubic-bezier(0.16,1,0.3,1)_both]">
+          <Image
+            src={photos[index].src}
+            alt={photos[index].caption}
+            fill
+            sizes="(min-width: 1024px) 60vw, 100vw"
+            className="object-cover"
+            priority={index === 0}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-transparent to-transparent" />
         </div>
 
-        <div className="absolute left-4 top-4 font-mono text-[11px] text-cyan/70">
+        <div className="absolute left-4 top-4 font-mono text-[11px] text-cyan/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
           {code} / {String(index + 1).padStart(2, "0")}—{String(count).padStart(2, "0")}
         </div>
 
         <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
-          <p className="eyebrow max-w-xs text-mist/70">{slides[index].caption}</p>
+          <p className="eyebrow max-w-xs text-mist">{photos[index].caption}</p>
           <div className="hidden gap-2 sm:flex">
             <button
               type="button"
-              aria-label="Предыдущий слайд"
+              aria-label="Предыдущее фото"
               onClick={() => goTo(index - 1)}
               className="focus-ring flex h-10 w-10 items-center justify-center border border-mist/25 bg-graphite/70 text-mist transition-colors hover:border-safety hover:text-safety"
             >
@@ -73,7 +78,7 @@ export default function ProjectSlider({
             </button>
             <button
               type="button"
-              aria-label="Следующий слайд"
+              aria-label="Следующее фото"
               onClick={() => goTo(index + 1)}
               className="focus-ring flex h-10 w-10 items-center justify-center border border-mist/25 bg-graphite/70 text-mist transition-colors hover:border-safety hover:text-safety"
             >
@@ -83,14 +88,14 @@ export default function ProjectSlider({
         </div>
       </div>
 
-      <div className="mt-4 flex items-center gap-3" role="tablist" aria-label="Слайды проекта">
-        {slides.map((slide, i) => (
+      <div className="mt-4 flex items-center gap-3" role="tablist" aria-label="Фото кампуса">
+        {photos.map((photo, i) => (
           <button
-            key={slide.caption}
+            key={photo.caption}
             type="button"
             role="tab"
             aria-selected={i === index}
-            aria-label={slide.caption}
+            aria-label={photo.caption}
             onClick={() => goTo(i)}
             className="focus-ring group flex-1"
           >

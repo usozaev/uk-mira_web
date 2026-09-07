@@ -31,9 +31,9 @@ export default function Header() {
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-3.5 sm:px-8 lg:px-12">
         <Link
           href="/"
-          className="focus-ring flex items-center gap-2.5 text-mist [animation:fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_both]"
+          className="focus-ring group flex items-center gap-2.5 text-mist [animation:fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_both]"
         >
-          <SiteMark className="h-7 w-7 shrink-0 text-safety" />
+          <SiteMark className="h-7 w-7 shrink-0 text-safety transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[18deg] group-hover:scale-110" />
           <span className="font-display text-xl font-medium uppercase tracking-wide">
             МИРА
           </span>

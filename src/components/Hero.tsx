@@ -9,6 +9,8 @@ export default function Hero() {
       <div className="hazard-strip absolute inset-x-0 top-0 z-10 h-2.5" />
 
       <div className="pointer-events-none absolute inset-0">
+        <div className="glow-blob -right-32 top-[-10%] h-[38rem] w-[38rem]" />
+        <div className="glow-blob glow-blob-blue -left-40 bottom-[-15%] h-[32rem] w-[32rem]" />
         <div className="blueprint-grid absolute inset-0 opacity-70 [animation:grid-pan_10s_linear_infinite]" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-graphite to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/50 to-graphite/20" />
@@ -23,42 +25,42 @@ export default function Hero() {
       </div>
 
       <div className="pointer-events-none absolute left-5 top-20 hidden font-mono text-[11px] text-cyan/60 sm:left-8 sm:block lg:left-12">
-        <p>УЧАСТОК 01 / СЕКТОР МСК</p>
-        <p className="mt-1">СТАТУС: АКТИВНАЯ ЗАСТРОЙКА</p>
+        <p>MIRA / ОПЕРАТОР ИНФРАСТРУКТУРЫ</p>
+        <p className="mt-1">СТАТУС: В ЭКСПЛУАТАЦИИ</p>
       </div>
       <div className="pointer-events-none absolute right-5 top-20 hidden text-right font-mono text-[11px] text-cyan/60 sm:right-8 sm:block lg:right-12">
-        <p>55.7558° N, 37.6173° E</p>
-        <p className="mt-1">РЕВ. 2026.07</p>
+        <p>УФА · НИЖНИЙ НОВГОРОД</p>
+        <p className="mt-1">2 КАМПУСА В УПРАВЛЕНИИ</p>
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-16 pt-40 sm:px-8 sm:pb-20 lg:px-12 lg:pb-24">
         <p className="eyebrow tag-bracket-responsive mb-6 inline-block border-l-2 border-safety-2 py-0.5 pl-3 text-safety-2 [animation:fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_both] sm:border-l-0 sm:pl-0">
-          Девелопер инфраструктуры нового поколения
+          Управляющая компания MIRA
         </p>
-        <h1 className="max-w-4xl font-display text-[15vw] font-medium uppercase leading-[0.92] tracking-tight sm:text-[9vw] lg:text-[7vw] [animation:fade-up_0.9s_cubic-bezier(0.16,1,0.3,1)_0.22s_both]">
-          Строим то,
+        <h1 className="max-w-4xl font-display text-[13vw] font-medium uppercase leading-[0.92] tracking-tight sm:text-[8vw] lg:text-[6vw] [animation:fade-up_0.9s_cubic-bezier(0.16,1,0.3,1)_0.22s_both]">
+          Оператор сложной
           <br />
-          что <span className="text-safety">движет</span> страну
+          <span className="text-shimmer">социальной</span> инфраструктуры
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist/70 [animation:fade-up_0.9s_cubic-bezier(0.16,1,0.3,1)_0.4s_both] sm:text-xl">
-          МИРА финансирует и строит инфраструктуру, промышленные объекты и
-          недвижимость — от чертежа до сдачи в эксплуатацию — в 41 регионе
-          России.
+          MIRA берёт на себя полное операционное управление сложным объектом
+          и отвечает за его работу как единой системы — от подготовки к
+          запуску до эксплуатации на протяжении жизненного цикла.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-5 [animation:fade-up_0.9s_cubic-bezier(0.16,1,0.3,1)_0.56s_both]">
           <a
-            href="#map"
-            className="focus-ring eyebrow group relative overflow-hidden border border-safety bg-safety px-7 py-3.5 text-graphite transition-colors"
+            href="/expertise"
+            className="focus-ring eyebrow cta-pulse group relative overflow-hidden border border-safety bg-safety px-7 py-3.5 text-graphite transition-colors"
           >
-            <span className="relative z-10">Смотреть карту объектов</span>
+            <span className="relative z-10">Наша экспертиза</span>
             <span className="absolute inset-0 -translate-x-full bg-safety-2 transition-transform duration-300 ease-out group-hover:translate-x-0" />
           </a>
           <a
-            href="#projects"
+            href="/about"
             className="focus-ring eyebrow border-b border-mist/30 pb-1 text-mist/80 transition-colors hover:border-cyan hover:text-cyan"
           >
-            Все проекты →
+            О компании →
           </a>
         </div>
       </div>

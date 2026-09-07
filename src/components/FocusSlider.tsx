@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { focusSlides } from "@/data/content";
+import { principles } from "@/data/content";
 
 const AUTO_MS = 5500;
 
@@ -9,7 +9,7 @@ export default function FocusSlider() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const dragState = useRef<{ startX: number; dragging: boolean } | null>(null);
-  const count = focusSlides.length;
+  const count = principles.length;
 
   const goTo = useCallback(
     (i: number) => setIndex(((i % count) + count) % count),
@@ -49,10 +49,10 @@ export default function FocusSlider() {
         <div className="flex items-end justify-between gap-4 border-b-2 border-mist/15 pb-6">
           <div>
             <p className="eyebrow tag-bracket inline-block text-cyan">
-              Спецвыпуск 02 — Направления
+              Наши принципы
             </p>
             <h2 className="mt-4 font-display text-4xl font-medium uppercase sm:text-5xl">
-              В фокусе
+              Принципы MIRA
             </h2>
           </div>
           <div className="hidden gap-3 sm:flex">
@@ -84,7 +84,7 @@ export default function FocusSlider() {
             className="flex transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
-            {focusSlides.map((slide, i) => (
+            {principles.map((slide, i) => (
               <article
                 key={slide.title}
                 className="grid w-full shrink-0 grid-cols-1 items-center gap-10 pr-2 lg:grid-cols-[1fr_auto] lg:gap-16"
@@ -112,11 +112,11 @@ export default function FocusSlider() {
                     <circle cx="195" cy="20" r="3" fill="var(--cyan)" />
                   </svg>
                   <div>
-                    <div className="font-display text-3xl font-medium text-cyan">
-                      {slide.figure}
+                    <div className="font-display text-3xl font-medium text-cyan [animation:count-blur_2.4s_ease-in-out_infinite_alternate]">
+                      {slide.kicker}
                     </div>
                     <p className="eyebrow mt-1 text-mist/50">
-                      {slide.figureLabel}
+                      Принцип
                     </p>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export default function FocusSlider() {
         </div>
 
         <div className="mt-10 flex items-center gap-3" role="tablist" aria-label="Слайды">
-          {focusSlides.map((slide, i) => (
+          {principles.map((slide, i) => (
             <button
               key={slide.title}
               type="button"

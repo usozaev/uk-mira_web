@@ -9,15 +9,15 @@ export default function Footer() {
       <div className="mx-auto max-w-[1440px] px-5 pb-10 pt-20 sm:px-8 lg:px-12 lg:pt-24">
         <div className="grid grid-cols-1 gap-14 border-b border-mist/15 pb-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2.5 text-mist">
-              <SiteMark className="h-8 w-8 text-safety" />
+            <div className="group flex items-center gap-2.5 text-mist">
+              <SiteMark className="h-8 w-8 text-safety transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[18deg] group-hover:scale-110" />
               <span className="font-display text-2xl font-medium uppercase tracking-wide">
                 МИРА
               </span>
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-mist/60">
-              МИРА строит и финансирует инфраструктуру, промышленные объекты
-              и недвижимость российских регионов.
+              Обеспечиваем надёжную и эффективную работу инфраструктуры, от
+              которой зависит качество жизни людей.
             </p>
             <p className="eyebrow mt-6 text-cyan">55.7558° N, 37.6173° E</p>
           </div>
@@ -70,16 +70,6 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-mist/70">
               <li>
                 <a href="#" className="focus-ring transition-colors hover:text-safety-2">
-                  Раскрытие информации
-                </a>
-              </li>
-              <li>
-                <a href="#" className="focus-ring transition-colors hover:text-safety-2">
-                  Инвесторам
-                </a>
-              </li>
-              <li>
-                <a href="#" className="focus-ring transition-colors hover:text-safety-2">
                   Карьера
                 </a>
               </li>
@@ -89,7 +79,6 @@ export default function Footer() {
 
         <div className="flex flex-col gap-4 pt-8 font-mono text-xs text-mist/40 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} УК «МИРА». Все права защищены.</p>
-          <p>Лицензия ЦБ РФ № 21-000-1-01234</p>
         </div>
       </div>
     </footer>

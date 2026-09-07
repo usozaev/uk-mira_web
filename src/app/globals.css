@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --graphite: #15171a;
-  --graphite-2: #1b1e23;
-  --graphite-3: #262a31;
-  --concrete: #e4e1da;
-  --concrete-2: #d7d3c9;
-  --steel: #4a5058;
-  --steel-soft: #8a9099;
-  --safety: #ff5a1f;
-  --safety-2: #ff7a45;
-  --cyan: #46e8d6;
+  --graphite: #1a234d;
+  --graphite-2: #243066;
+  --graphite-3: #314081;
+  --concrete: #1d2858;
+  --concrete-2: #293670;
+  --steel: #5a6aaf;
+  --steel-soft: #b5bee3;
+  --safety: #6699ff;
+  --safety-2: #99bbff;
+  --cyan: #c49ff9;
   --caution: #ffc531;
-  --mist: #edeef0;
-  --charcoal: #1a1c1f;
+  --mist: #f3f4fc;
+  --charcoal: #161e41;
 
   --font-display: "Oswald", sans-serif;
   --font-body: "IBM Plex Sans", sans-serif;
@@ -50,7 +50,7 @@ html {
 
 body {
   background: var(--concrete);
-  color: var(--charcoal);
+  color: var(--mist);
   font-family: var(--font-body);
   overflow-x: hidden;
 }
@@ -131,10 +131,109 @@ body {
   );
 }
 
+.glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(196, 159, 249, 0.4),
+    transparent 70%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+  animation: blob-float 16s ease-in-out infinite;
+}
+
+.glow-blob-blue {
+  background: radial-gradient(
+    circle,
+    rgba(102, 153, 255, 0.45),
+    transparent 70%
+  );
+  animation-duration: 13s;
+  animation-delay: -4s;
+}
+
+@keyframes blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(3%, -6%) scale(1.08);
+  }
+  66% {
+    transform: translate(-4%, 4%) scale(0.94);
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--safety) 20%,
+    var(--cyan) 40%,
+    var(--mist) 50%,
+    var(--cyan) 60%,
+    var(--safety) 80%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -250% center;
+  }
+}
+
+.cta-pulse {
+  animation: cta-glow 2.8s ease-in-out infinite;
+}
+
+@keyframes cta-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(102, 153, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 26px 2px rgba(102, 153, 255, 0.55);
+  }
+}
+
+.shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-sweep::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent,
+    rgba(243, 244, 252, 0.16),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.shine-sweep:hover::after {
+  left: 130%;
+}
+
 .blueprint-grid {
   background-image:
-    linear-gradient(to right, rgba(70, 232, 214, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(70, 232, 214, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(167, 139, 250, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(167, 139, 250, 0.08) 1px, transparent 1px);
   background-size: 42px 42px;
 }
 
