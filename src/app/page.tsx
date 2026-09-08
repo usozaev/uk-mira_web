@@ -1,12 +1,12 @@
 import Hero from "@/components/Hero";
-import FocusSlider from "@/components/FocusSlider";
+import Principles from "@/components/Principles";
 import ExpertiseTeaser from "@/components/ExpertiseTeaser";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <FocusSlider />
+      <Principles />
       <ExpertiseTeaser />
     </main>
   );

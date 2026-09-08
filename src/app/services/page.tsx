@@ -13,7 +13,7 @@ export default function ServicesPage() {
     <main className="bg-graphite pb-24 pt-28 text-mist sm:pt-32 lg:pt-36">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <Reveal>
-          <p className="eyebrow tag-bracket inline-block text-safety">
+          <p className="eyebrow inline-block text-safety">
             {brand.whatWeDo.eyebrow}
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium uppercase leading-[0.98] sm:text-5xl lg:text-6xl">
@@ -42,7 +42,7 @@ export default function ServicesPage() {
 
         <Reveal>
           <div className="mt-20 border-t-2 border-mist/15 pt-12">
-            <p className="eyebrow tag-bracket inline-block text-cyan">
+            <p className="eyebrow inline-block text-cyan">
               Кому MIRA создаёт ценность
             </p>
             <div className="mt-8 grid grid-cols-1 gap-px border border-steel/20 bg-steel/20 sm:grid-cols-2">

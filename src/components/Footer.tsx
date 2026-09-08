@@ -1,19 +1,18 @@
 import Link from "next/link";
-import SiteMark from "./SiteMark";
+import Logo from "./Logo";
 import { nav } from "@/data/content";
 
 export default function Footer() {
   return (
     <footer id="contacts" className="relative bg-graphite text-mist">
-      <div className="hazard-strip absolute inset-x-0 top-0 h-2.5" />
       <div className="mx-auto max-w-[1440px] px-5 pb-10 pt-20 sm:px-8 lg:px-12 lg:pt-24">
         <div className="grid grid-cols-1 gap-14 border-b border-mist/15 pb-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <div className="group flex items-center gap-2.5 text-mist">
-              <SiteMark className="h-8 w-8 text-safety transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[18deg] group-hover:scale-110" />
-              <span className="font-display text-2xl font-medium uppercase tracking-wide">
-                МИРА
-              </span>
+              <Logo
+                className="w-auto transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                style={{ height: "45px" }}
+              />
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-mist/60">
               Обеспечиваем надёжную и эффективную работу инфраструктуры, от

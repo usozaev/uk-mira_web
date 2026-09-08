@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { nav } from "@/data/content";
-import SiteMark from "./SiteMark";
+import Logo from "./Logo";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,10 +33,10 @@ export default function Header() {
           href="/"
           className="focus-ring group flex items-center gap-2.5 text-mist [animation:fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_both]"
         >
-          <SiteMark className="h-7 w-7 shrink-0 text-safety transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[18deg] group-hover:scale-110" />
-          <span className="font-display text-xl font-medium uppercase tracking-wide">
-            МИРА
-          </span>
+          <Logo
+            className="w-auto shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+            style={{ height: "34px" }}
+          />
           <span className="ml-1.5 hidden items-center gap-1.5 border-l border-mist/20 pl-3 sm:flex">
             <span className="h-1.5 w-1.5 rounded-full bg-cyan [animation:blink_1.8s_ease-in-out_infinite]" />
             <span className="eyebrow text-cyan/80">Онлайн</span>
@@ -59,7 +59,7 @@ export default function Header() {
 
         <Link
           href="/#contacts"
-          className="focus-ring eyebrow hidden shrink-0 animate-[fade-up_0.7s_cubic-bezier(0.16,1,0.3,1)_0.55s_both] border border-safety bg-safety/10 px-5 py-2.5 text-safety-2 transition-colors hover:bg-safety hover:text-graphite lg:inline-block"
+          className="focus-ring eyebrow hidden shrink-0 animate-[fade-up_0.7s_cubic-bezier(0.16,1,0.3,1)_0.55s_both] border border-safety bg-safety/10 px-5 py-2.5 text-safety-2 transition-colors hover:bg-safety hover:text-mist lg:inline-block"
         >
           Связаться
         </Link>

@@ -4,10 +4,8 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-end overflow-hidden bg-graphite text-mist"
+      className="relative overflow-hidden bg-graphite text-mist"
     >
-      <div className="hazard-strip absolute inset-x-0 top-0 z-10 h-2.5" />
-
       <div className="pointer-events-none absolute inset-0">
         <div className="glow-blob -right-32 top-[-10%] h-[38rem] w-[38rem]" />
         <div className="glow-blob glow-blob-blue -left-40 bottom-[-15%] h-[32rem] w-[32rem]" />
@@ -33,14 +31,14 @@ export default function Hero() {
         <p className="mt-1">2 КАМПУСА В УПРАВЛЕНИИ</p>
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-16 pt-40 sm:px-8 sm:pb-20 lg:px-12 lg:pb-24">
-        <p className="eyebrow tag-bracket-responsive mb-6 inline-block border-l-2 border-safety-2 py-0.5 pl-3 text-safety-2 [animation:fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_both] sm:border-l-0 sm:pl-0">
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-32 lg:px-12 lg:pb-24">
+        <p className="eyebrow mb-6 inline-block border-l-2 border-safety-2 pl-3 text-safety-2 [animation:fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.1s_both]">
           Управляющая компания MIRA
         </p>
-        <h1 className="max-w-4xl font-display text-[13vw] font-medium uppercase leading-[0.92] tracking-tight sm:text-[8vw] lg:text-[6vw] [animation:fade-up_0.9s_cubic-bezier(0.16,1,0.3,1)_0.22s_both]">
-          Оператор сложной
-          <br />
-          <span className="text-shimmer">социальной</span> инфраструктуры
+        <h1 className="max-w-2xl font-display text-3xl font-medium uppercase leading-[1.1] tracking-tight [animation:fade-up_0.9s_cubic-bezier(0.16,1,0.3,1)_0.22s_both] sm:text-4xl lg:text-5xl">
+          <span className="text-shimmer">
+            Оператор сложной социальной инфраструктуры
+          </span>
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist/70 [animation:fade-up_0.9s_cubic-bezier(0.16,1,0.3,1)_0.4s_both] sm:text-xl">
           MIRA берёт на себя полное операционное управление сложным объектом
@@ -51,9 +49,11 @@ export default function Hero() {
         <div className="mt-10 flex flex-wrap items-center gap-5 [animation:fade-up_0.9s_cubic-bezier(0.16,1,0.3,1)_0.56s_both]">
           <a
             href="/expertise"
-            className="focus-ring eyebrow cta-pulse group relative overflow-hidden border border-safety bg-safety px-7 py-3.5 text-graphite transition-colors"
+            className="focus-ring eyebrow cta-pulse group relative overflow-hidden border border-safety bg-safety px-7 py-3.5 text-mist transition-colors"
           >
-            <span className="relative z-10">Наша экспертиза</span>
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-graphite">
+              Наша экспертиза
+            </span>
             <span className="absolute inset-0 -translate-x-full bg-safety-2 transition-transform duration-300 ease-out group-hover:translate-x-0" />
           </a>
           <a

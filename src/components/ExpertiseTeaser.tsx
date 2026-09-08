@@ -10,7 +10,7 @@ export default function ExpertiseTeaser() {
         <Reveal>
           <div className="flex items-end justify-between gap-4 border-b-2 border-mist/15 pb-6">
             <div>
-              <p className="eyebrow tag-bracket inline-block text-safety">
+              <p className="eyebrow inline-block text-safety">
                 Наша экспертиза
               </p>
               <h2 className="mt-4 font-display text-4xl font-medium uppercase text-mist sm:text-5xl">
@@ -25,7 +25,7 @@ export default function ExpertiseTeaser() {
             <Reveal key={c.slug} delay={i * 80} className="h-full">
               <Link
                 href={`/expertise/${c.slug}`}
-                className="shine-sweep focus-ring group relative block h-full overflow-hidden bg-concrete-2 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:z-10 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_rgba(238,240,250,0.12)]"
+                className="shine-sweep focus-ring group relative block h-full overflow-hidden bg-concrete-2 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:z-10 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_rgba(231,235,240,0.12)]"
               >
                 <span className="absolute inset-x-0 top-0 z-10 h-1 origin-left scale-x-0 bg-safety transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
                 <div className="relative aspect-[16/9] w-full overflow-hidden">

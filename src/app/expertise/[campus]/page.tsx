@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { campuses } from "@/data/content";
 import PhotoSlider from "@/components/PhotoSlider";
@@ -64,7 +65,7 @@ export default async function CampusPage({
         <div className="mt-8 flex flex-wrap items-start justify-between gap-6 border-b-2 border-mist/15 pb-8">
           <div>
             <div className="flex items-center gap-3">
-              <span className="eyebrow tag-bracket inline-block text-safety">
+              <span className="eyebrow inline-block text-safety">
                 {campus.code}
               </span>
               <p className="eyebrow inline-flex items-center gap-2 text-cyan">
@@ -80,7 +81,7 @@ export default async function CampusPage({
           <p className="max-w-sm text-mist/60 leading-relaxed">{campus.summary}</p>
         </div>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
+        <div className="mt-12 grid gap-12 lg:grid-cols-[1.7fr_1fr] lg:gap-16">
           <div>
             <PhotoSlider photos={campus.photos} code={campus.code} />
           </div>
@@ -104,18 +105,30 @@ export default async function CampusPage({
           </div>
         </div>
 
-        <div className="mt-20 border-t-2 border-mist/15 pt-8">
+        <div className="mt-20">
           <Link
             href={`/expertise/${next.slug}`}
-            className="focus-ring group flex items-center justify-between gap-4"
+            className="shine-sweep focus-ring group relative flex items-center justify-between gap-6 overflow-hidden border border-safety/40 bg-graphite-2 p-8 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-safety hover:shadow-[10px_10px_0_0_rgba(74,129,194,0.35)] sm:p-10"
           >
-            <div>
-              <p className="eyebrow text-mist/40">Другой кампус</p>
-              <p className="mt-2 font-display text-2xl font-medium uppercase text-mist transition-colors group-hover:text-safety sm:text-3xl">
+            <div className="pointer-events-none absolute inset-0 opacity-15 transition-opacity duration-500 group-hover:opacity-30">
+              <Image
+                src={next.photos[0].src}
+                alt=""
+                fill
+                sizes="600px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-graphite-2/70" />
+            </div>
+
+            <div className="relative z-10">
+              <p className="eyebrow text-cyan">Другой кампус</p>
+              <p className="mt-3 font-display text-3xl font-medium uppercase text-mist transition-colors group-hover:text-safety sm:text-4xl">
                 {next.title}
               </p>
+              <p className="mt-2 text-sm text-mist/55">{next.place}</p>
             </div>
-            <span className="eyebrow flex h-12 w-12 shrink-0 items-center justify-center border border-mist/20 text-xl text-mist transition-all duration-300 group-hover:border-safety group-hover:bg-safety group-hover:text-mist">
+            <span className="eyebrow relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-safety bg-safety/10 text-2xl text-safety transition-all duration-300 group-hover:scale-110 group-hover:bg-safety group-hover:text-mist">
               →
             </span>
           </Link>

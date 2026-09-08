@@ -14,7 +14,7 @@ export default function ExpertisePage() {
     <main className="bg-graphite pb-0 pt-28 text-mist sm:pt-32 lg:pt-36">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <Reveal>
-          <p className="eyebrow tag-bracket inline-block text-safety">
+          <p className="eyebrow inline-block text-safety">
             {brand.expertiseIntro.eyebrow}
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium uppercase leading-[0.98] sm:text-5xl lg:text-6xl">

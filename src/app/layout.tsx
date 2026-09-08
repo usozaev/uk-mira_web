@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
-import { Oswald, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
 import "./globals.css";
 
-const displayFont = Oswald({
+const displayFont = Montserrat({
   variable: "--font-display",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
 });
 
-const plexSans = IBM_Plex_Sans({
+const bodyFont = Montserrat({
   variable: "--font-body",
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600"],
 });
 
-const plexMono = IBM_Plex_Mono({
+const monoFont = Montserrat({
   variable: "--font-mono",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600"],
+  weight: ["500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -36,9 +37,10 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${displayFont.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Preloader />
         <Header />
         {children}
         <Footer />
