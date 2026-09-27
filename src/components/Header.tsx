@@ -5,6 +5,8 @@ import Link from "next/link";
 import { nav } from "@/data/content";
 import Logo from "./Logo";
 
+const headerNav = nav.filter((item) => item.href !== "");
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,14 +39,10 @@ export default function Header() {
             className="w-auto shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
             style={{ height: "34px" }}
           />
-          <span className="ml-1.5 hidden items-center gap-1.5 border-l border-mist/20 pl-3 sm:flex">
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan [animation:blink_1.8s_ease-in-out_infinite]" />
-            <span className="eyebrow text-cyan/80">Онлайн</span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {nav.map((item, i) => (
+          {headerNav.map((item, i) => (
             <Link
               key={item.href}
               href={`/${item.href}`}
@@ -90,7 +88,7 @@ export default function Header() {
         }`}
       >
         <nav className="flex flex-col gap-1 px-5 pb-6 pt-2 sm:px-8">
-          {nav.map((item) => (
+          {headerNav.map((item) => (
             <Link
               key={item.href}
               href={`/${item.href}`}

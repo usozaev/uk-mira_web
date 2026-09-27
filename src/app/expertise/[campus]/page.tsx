@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { campuses } from "@/data/content";
 import PhotoSlider from "@/components/PhotoSlider";
+import Starfield from "@/components/Starfield";
 
 const titles: Record<string, { h1: string; title: string; description: string }> = {
   ufa: {
@@ -48,8 +49,9 @@ export default async function CampusPage({
   const meta = titles[slug];
 
   return (
-    <main className="bg-concrete pb-24 pt-28 sm:pt-32 lg:pt-36">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+    <main className="relative overflow-hidden bg-concrete pb-24 pt-28 sm:pt-32 lg:pt-36">
+      <Starfield count={90} seed={55} className="opacity-60" />
+      <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <nav className="eyebrow flex items-center gap-2 text-mist/45">
           <Link href="/" className="focus-ring hover:text-safety">
             Главная
@@ -87,7 +89,7 @@ export default async function CampusPage({
           </div>
 
           <div>
-            <p className="eyebrow text-safety">Об объекте</p>
+            <h3 className="font-display text-2xl font-medium text-mist sm:text-[28px]">Об объекте</h3>
             <p className="mt-4 text-mist/75 leading-relaxed">
               {campus.description}
             </p>

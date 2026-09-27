@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { brand } from "@/data/content";
 import Reveal from "@/components/Reveal";
+import ConvergenceDiagram from "@/components/ConvergenceDiagram";
+import ClientGetsPanel from "@/components/ClientGetsPanel";
+import Starfield from "@/components/Starfield";
 
 export const metadata: Metadata = {
   title: "О компании MIRA — оператор сложной социальной инфраструктуры",
@@ -10,14 +13,15 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="bg-graphite pb-24 pt-28 text-mist sm:pt-32 lg:pt-36">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+    <main className="relative overflow-hidden bg-graphite pb-24 pt-28 text-mist sm:pt-32 lg:pt-36">
+      <Starfield count={110} seed={21} className="opacity-70" />
+      <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <Reveal>
           <p className="eyebrow inline-block text-safety">
             {brand.whoWeAre.eyebrow}
           </p>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-medium uppercase leading-[0.98] sm:text-5xl lg:text-6xl">
-            Управляющая компания MIRA
+          <h1 className="chrome-text mt-4 max-w-3xl font-display text-4xl font-medium leading-[1.05] sm:text-5xl lg:text-[52px]">
+            Один оператор. Полная ответственность.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist/70 sm:text-xl">
             {brand.whoWeAre.lead}
@@ -32,31 +36,34 @@ export default function AboutPage() {
 
         <Reveal>
           <div className="mt-20 border-t-2 border-mist/15 pt-12">
-            <p className="eyebrow inline-block text-cyan">
+            <h3 className="font-display text-2xl font-medium text-mist sm:text-[28px]">
               {brand.whyMira.eyebrow}
-            </p>
-            <div className="mt-6 grid gap-6 lg:grid-cols-2">
-              <div className="space-y-4 text-mist/70 leading-relaxed">
-                {brand.whyMira.paragraphs.slice(0, 2).map((p) => (
-                  <p key={p}>{p}</p>
-                ))}
+            </h3>
+            <div className="mt-6 grid items-center gap-10 lg:grid-cols-[1fr_1.1fr]">
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div className="space-y-4 text-mist/70 leading-relaxed">
+                  {brand.whyMira.paragraphs.slice(0, 2).map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                </div>
+                <div className="space-y-4 text-mist/70 leading-relaxed">
+                  {brand.whyMira.paragraphs.slice(2).map((p) => (
+                    <p key={p} className="font-display text-2xl font-medium uppercase text-mist">
+                      {p}
+                    </p>
+                  ))}
+                </div>
               </div>
-              <div className="space-y-4 text-mist/70 leading-relaxed">
-                {brand.whyMira.paragraphs.slice(2).map((p) => (
-                  <p key={p} className="font-display text-2xl font-medium uppercase text-mist">
-                    {p}
-                  </p>
-                ))}
-              </div>
+              <ConvergenceDiagram className="mx-auto w-full max-w-xl" />
             </div>
           </div>
         </Reveal>
 
         <Reveal>
           <div className="mt-20 border-t-2 border-mist/15 pt-12">
-            <p className="eyebrow inline-block text-safety">
+            <h3 className="font-display text-2xl font-medium text-mist sm:text-[28px]">
               {brand.positioning.eyebrow}
-            </p>
+            </h3>
             <div className="mt-6 max-w-3xl space-y-4 text-mist/70 leading-relaxed">
               {brand.positioning.paragraphs.map((p) => (
                 <p key={p}>{p}</p>
@@ -75,23 +82,13 @@ export default function AboutPage() {
 
         <Reveal>
           <div className="mt-20 border-t-2 border-mist/15 pt-12">
-            <p className="eyebrow inline-block text-cyan">
+            <h3 className="font-display text-2xl font-medium text-mist sm:text-[28px]">
               {brand.clientGets.eyebrow}
-            </p>
+            </h3>
             <p className="mt-6 max-w-2xl text-mist/70 leading-relaxed">
               {brand.clientGets.lead}
             </p>
-            <ul className="mt-8 grid gap-x-10 gap-y-3 sm:grid-cols-2">
-              {brand.clientGets.items.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 border-b border-mist/10 pb-3 text-mist/75"
-                >
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-safety" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <ClientGetsPanel items={brand.clientGets.items} />
           </div>
         </Reveal>
       </div>

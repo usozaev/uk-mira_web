@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { brand } from "@/data/content";
 import Reveal from "@/components/Reveal";
 import ExpertiseTeaser from "@/components/ExpertiseTeaser";
+import Starfield from "@/components/Starfield";
 
 export const metadata: Metadata = {
   title: "Управление университетскими кампусами — MIRA",
@@ -11,8 +12,9 @@ export const metadata: Metadata = {
 
 export default function ExpertisePage() {
   return (
-    <main className="bg-graphite pb-0 pt-28 text-mist sm:pt-32 lg:pt-36">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+    <main className="relative overflow-hidden bg-graphite pb-0 pt-28 text-mist sm:pt-32 lg:pt-36">
+      <Starfield count={110} seed={44} className="opacity-70" />
+      <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <Reveal>
           <p className="eyebrow inline-block text-safety">
             {brand.expertiseIntro.eyebrow}

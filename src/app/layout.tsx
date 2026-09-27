@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Unbounded, Golos_Text } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import "./globals.css";
 
-const displayFont = Montserrat({
+const displayFont = Unbounded({
   variable: "--font-display",
   subsets: ["latin", "cyrillic"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600"],
 });
 
-const bodyFont = Montserrat({
+const bodyFont = Golos_Text({
   variable: "--font-body",
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600"],
 });
 
-const monoFont = Montserrat({
+const monoFont = Golos_Text({
   variable: "--font-mono",
   subsets: ["latin", "cyrillic"],
   weight: ["500", "600"],

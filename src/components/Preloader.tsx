@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const STAR_D =
-  "M50,8 L54,46 L92,50 L54,54 L50,92 L46,54 L8,50 L46,46 Z";
+  "M0,-38 C4,-6 6,-4 38,0 C6,4 4,6 0,38 C-4,6 -6,4 -38,0 C-6,-4 -4,-6 0,-38 Z";
 
-const HOLD_MS = 3432;
-const EXIT_MS = 1020;
+const HOLD_MS = 4300;
+const EXIT_MS = 1000;
 
 const MINI_STARS: {
   top: string;
@@ -16,12 +16,21 @@ const MINI_STARS: {
   delay: number;
   color: string;
 }[] = [
-  { top: "6%", left: "18%", size: "14px", delay: 0.24, color: "var(--cyan)" },
-  { top: "12%", left: "80%", size: "10px", delay: 1.08, color: "var(--safety-2)" },
-  { top: "48%", left: "94%", size: "16px", delay: 1.8, color: "var(--cyan)" },
-  { top: "82%", left: "78%", size: "11px", delay: 0.6, color: "var(--safety-2)" },
-  { top: "86%", left: "20%", size: "14px", delay: 1.32, color: "var(--cyan)" },
-  { top: "46%", left: "2%", size: "10px", delay: 2.16, color: "var(--safety-2)" },
+  { top: "8%", left: "20%", size: "12px", delay: 0.4, color: "var(--cyan)" },
+  { top: "14%", left: "78%", size: "9px", delay: 1.2, color: "var(--safety-2)" },
+  { top: "50%", left: "92%", size: "14px", delay: 2, color: "var(--cyan)" },
+  { top: "84%", left: "76%", size: "10px", delay: 0.8, color: "var(--safety-2)" },
+  { top: "88%", left: "22%", size: "12px", delay: 1.6, color: "var(--cyan)" },
+  { top: "48%", left: "4%", size: "9px", delay: 2.4, color: "var(--safety-2)" },
+];
+
+const LETTERS = [
+  { ch: "М", delay: 1.3 },
+  { ch: "И", delay: 1.44 },
+];
+const RA_LETTERS = [
+  { ch: "Р", delay: 1.58 },
+  { ch: "А", delay: 1.72 },
 ];
 
 export default function Preloader() {
@@ -63,32 +72,13 @@ export default function Preloader() {
         inset: 0,
         zIndex: 100,
         overflow: "hidden",
+        background:
+          "radial-gradient(ellipse 700px 500px at 50% 50%, #0C2366 0%, #040A1C 70%)",
       }}
       aria-hidden="true"
     >
       <div
-        className={`bg-graphite ${exiting ? "preloader-panel-exit-left" : ""}`}
-        style={{
-          position: "absolute",
-          top: 0,
-          bottom: 0,
-          left: 0,
-          width: "50%",
-        }}
-      />
-      <div
-        className={`bg-graphite ${exiting ? "preloader-panel-exit-right" : ""}`}
-        style={{
-          position: "absolute",
-          top: 0,
-          bottom: 0,
-          right: 0,
-          width: "50%",
-        }}
-      />
-
-      <div
-        className={`relative flex h-full w-full flex-col items-center justify-center gap-5 ${
+        className={`relative flex h-full w-full flex-col items-center justify-center gap-6 ${
           exiting ? "preloader-content-exit" : ""
         }`}
       >
@@ -96,7 +86,7 @@ export default function Preloader() {
           {MINI_STARS.map((s, i) => (
             <svg
               key={i}
-              viewBox="0 0 100 100"
+              viewBox="-40 -40 80 80"
               className="preloader-mini-star"
               style={{
                 top: s.top,
@@ -110,40 +100,50 @@ export default function Preloader() {
             </svg>
           ))}
 
-          <div className="relative flex h-24 w-24 items-center justify-center sm:h-28 sm:w-28">
-            <div
-              className="preloader-star-glow absolute inset-0 rounded-full"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(74,129,194,0.55), transparent 70%)",
-                filter: "blur(18px)",
-              }}
-            />
-            <svg viewBox="0 0 100 100" className="relative h-full w-full">
-              <path
-                d={STAR_D}
-                className="preloader-star-fill"
-                fill="var(--safety)"
-              />
-              <path
-                d={STAR_D}
-                className="preloader-star-path"
-                fill="none"
-                stroke="var(--cyan)"
-                strokeWidth="2.5"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-                pathLength={1}
-              />
-            </svg>
-          </div>
+          <svg viewBox="-40 -40 80 80" className="preloader-star-in relative h-24 w-24 sm:h-28 sm:w-28">
+            <path d={STAR_D} fill="var(--mist)" />
+          </svg>
         </div>
 
+        <span
+          className="preloader-line-in"
+          style={{
+            display: "block",
+            width: "260px",
+            height: "1px",
+            background:
+              "linear-gradient(90deg, transparent, var(--cyan) 30%, var(--mist) 50%, var(--cyan) 70%, transparent)",
+            boxShadow: "0 0 14px rgba(157,187,255,.8), 0 0 40px rgba(110,155,255,.5)",
+          }}
+        />
+
         <p
-          className="preloader-wordmark font-display text-3xl font-medium uppercase text-mist sm:text-4xl"
-          style={{ letterSpacing: "0.2em" }}
+          className="font-display text-3xl font-medium uppercase sm:text-4xl"
+          style={{ letterSpacing: "0.28em", paddingLeft: "0.28em", margin: 0, display: "flex" }}
         >
-          МИРА
+          {LETTERS.map((l) => (
+            <span
+              key={l.ch}
+              className="preloader-letter"
+              style={{ animationDelay: `${l.delay}s`, color: "var(--mist)" }}
+            >
+              {l.ch}
+            </span>
+          ))}
+          <span style={{ position: "relative", display: "inline-flex" }}>
+            <span className="preloader-ra-pill" />
+            {RA_LETTERS.map((l) => (
+              <span
+                key={l.ch}
+                className="preloader-letter preloader-ra-ink"
+                style={{
+                  animation: `preloader-letter-reveal 1s cubic-bezier(0.2,0.8,0.2,1) ${l.delay}s forwards, preloader-ra-ink-shift 1.3s linear 3s forwards`,
+                }}
+              >
+                {l.ch}
+              </span>
+            ))}
+          </span>
         </p>
       </div>
     </div>

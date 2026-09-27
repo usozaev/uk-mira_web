@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import Starfield from "./Starfield";
 import { nav } from "@/data/content";
 
 export default function Footer() {
   return (
-    <footer id="contacts" className="relative bg-graphite text-mist">
-      <div className="mx-auto max-w-[1440px] px-5 pb-10 pt-20 sm:px-8 lg:px-12 lg:pt-24">
+    <footer id="contacts" className="relative overflow-hidden bg-graphite text-mist">
+      <Starfield count={90} seed={99} className="opacity-50" />
+      <div className="relative mx-auto max-w-[1440px] px-5 pb-10 pt-20 sm:px-8 lg:px-12 lg:pt-24">
         <div className="grid grid-cols-1 gap-14 border-b border-mist/15 pb-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <div className="group flex items-center gap-2.5 text-mist">
